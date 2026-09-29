@@ -92,7 +92,7 @@ nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,
 
 <script>
 (function(){
-var q=new URLSearchParams(location.search), student=q.get('student')||'David', school=q.get('school')||'ZŠ Testovací', clazz=q.get('class')||'7.A';
+var rawParams=location.search; if(location.hash&&location.hash.length>1){rawParams=location.hash.slice(1)} var q=new URLSearchParams(rawParams), student=q.get('student')||'David', school=q.get('school')||'ZŠ Testovací', clazz=q.get('class')||'7.A';
 var schedule=[
 {name:'Matematika',start:'08:00',end:'08:45',room:'203',teacher:'p. Novák'},
 {name:'Český jazyk',start:'08:55',end:'09:40',room:'112',teacher:'p. Dvořáková'},
