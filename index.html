@@ -3,51 +3,136 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f172a">
-<title>KZ SchoolMode</title>
+<meta name="theme-color" content="#17191d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>DDQ SchoolMode</title>
 <style>
-:root{--bg:#f4f7fb;--card:#fff;--text:#102033;--muted:#637083;--line:#dbe3ec;--accent:#0f62fe;--accent2:#eaf2ff;--danger:#c62828}
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
-.app{max-width:460px;margin:0 auto;min-height:100vh;background:#fff}header{padding:18px 18px 12px;border-bottom:1px solid var(--line)}
-.eyebrow,.label{font-size:12px;font-weight:700;letter-spacing:.07em;color:var(--muted);text-transform:uppercase}h1{font-size:24px;margin:5px 0 3px}
-.sub,.meta{color:var(--muted);font-size:14px}.status{display:inline-flex;margin-top:10px;padding:7px 11px;border-radius:999px;background:#e9f8ef;color:#08783f;font-weight:700;font-size:13px}
-main{padding:16px}.card{border:1px solid var(--line);border-radius:18px;padding:15px;margin-bottom:12px;background:var(--card)}.now{background:linear-gradient(180deg,#fff,#f8fbff)}
-.row{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.subject{font-size:22px;font-weight:800;margin-top:5px}.pill{background:var(--accent2);color:#174a9b;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;white-space:nowrap}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}button{font:inherit}.tool{border:1px solid var(--line);background:#fff;border-radius:16px;padding:15px;text-align:left;min-height:88px}.tool .ico{font-size:25px}.tool .txt{display:block;margin-top:7px;font-weight:750}
-.list{margin:10px 0 0;padding:0;list-style:none}.list li{padding:9px 0;border-top:1px solid #edf1f5;font-size:14px}.list li:first-child{border-top:0}
-.help,.sos,.parent{width:100%;border-radius:14px;padding:14px;border:0;font-weight:800;margin-top:9px}.help{background:#edf4ff;color:#144a93}.parent{background:#f2f4f7;color:#273444}.sos{background:var(--danger);color:#fff}
-.panel{display:none;margin-top:12px}.panel.active{display:block}.calc-display{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:24px;text-align:right;margin-bottom:10px}.calc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.calc button{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}
-textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit}.toast{display:none;margin-top:10px;padding:12px;border-radius:12px;background:#fff7e6;border:1px solid #f6d69b;font-size:14px}.toast.show{display:block}
-footer{padding:10px 16px 22px;text-align:center;color:var(--muted);font-size:12px}.off{padding:32px 20px;text-align:center}.off .big{font-size:54px}.activate{border:0;background:var(--accent);color:#fff;border-radius:14px;padding:14px 18px;font-weight:800;width:100%;margin-top:15px}
-@media(max-width:360px){.grid{grid-template-columns:1fr}.app{max-width:none}}
+:root{--bg:#f3f4f6;--card:#fff;--ink:#17191d;--muted:#737984;--line:#e2e5e9;--brand:#e65332;--brand2:#c94327;--soft:#fff0eb;--green:#168756;--red:#c73a3a;--blue:#2d6fb2;--shadow:0 12px 32px rgba(15,18,24,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}button,input,textarea,select{font:inherit}button{cursor:pointer}
+.app{max-width:520px;margin:auto;min-height:100vh;background:#fff}.top{position:sticky;top:0;z-index:20;background:#17191d;color:#fff;padding:calc(13px + env(safe-area-inset-top)) 17px 13px}.toprow{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;border-radius:12px;background:var(--brand);display:grid;place-items:center;font-size:14px;font-weight:900}.brand b{display:block}.brand small{color:#b9bdc5}.chip{font-size:11px;border:1px solid #3a3d43;border-radius:99px;padding:8px 10px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4bd08a;margin-right:7px}
+.hero{background:linear-gradient(180deg,#17191d,#262930);color:#fff;padding:17px}.herohead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}.hello{font-size:25px;font-weight:850}.date{font-size:12px;color:#bdc1c8;margin-top:4px}.mode{font-size:11px;font-weight:800;text-align:center;color:#ffb39f;background:rgba(230,83,50,.15);border:1px solid rgba(230,83,50,.35);padding:8px 10px;border-radius:10px}
+.lesson{background:#fff;color:var(--ink);margin-top:15px;border-radius:18px;padding:15px;box-shadow:var(--shadow)}.eyebrow{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;font-weight:850}.lessonrow{display:flex;justify-content:space-between;gap:12px;margin-top:6px}.lessonname{font-size:22px;font-weight:850}.meta{font-size:12px;color:var(--muted);margin-top:4px}.remain{text-align:right;min-width:80px}.remain b{font-size:18px}.remain small{display:block;color:var(--muted)}.bar{height:7px;background:#eceef1;border-radius:99px;margin-top:13px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),#f29a7b);border-radius:99px}.next{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted);margin-top:10px}
+main{padding:15px 15px 92px;background:var(--bg)}.screen{display:none}.screen.on{display:block}.head{display:flex;justify-content:space-between;align-items:center;margin:4px 2px 9px}.head h2{font-size:16px;margin:0}.linkbtn{border:0;background:none;color:var(--brand2);font-weight:800;font-size:11px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.quick{border:1px solid var(--line);background:#fff;border-radius:17px;padding:13px;text-align:left;min-height:103px;box-shadow:0 5px 16px rgba(15,18,24,.04)}.quick:active{transform:scale(.985)}.ico{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:20px;margin-bottom:10px}.orange{background:var(--soft)}.blue{background:#edf5ff}.yellow{background:#fff5dd}.green{background:#eaf8f1}.quick b{font-size:13px}.quick small{display:block;font-size:10px;color:var(--muted);margin-top:3px;line-height:1.25}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 6px 18px rgba(15,18,24,.04)}.today{padding:4px 13px}.item{display:flex;gap:11px;padding:12px 0;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}.itemicon{width:35px;height:35px;border-radius:10px;background:#f6f7f9;display:grid;place-items:center;flex:0 0 auto}.item b{font-size:12px}.item span{display:block;font-size:11px;color:var(--muted);margin-top:3px;line-height:1.35}
+.title{font-size:22px;font-weight:850;margin:5px 0 13px}.intro{font-size:12px;color:var(--muted);line-height:1.45;margin:-6px 0 13px}.schedule{padding:3px 13px}.srow{display:grid;grid-template-columns:44px 1fr auto;gap:9px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.srow:last-child{border-bottom:0}.stime{font-size:11px;font-weight:800;color:var(--muted)}.sinfo b{font-size:12px}.sinfo span{display:block;color:var(--muted);font-size:10px;margin-top:2px}.room{font-size:10px;color:var(--muted);background:#f6f7f9;border-radius:8px;padding:6px 7px}.srow.active .sinfo b{color:var(--brand2)}
+.tool{padding:14px;margin-bottom:10px}.tool h3{font-size:13px;margin:0 0 9px}.display{width:100%;border:1px solid var(--line);background:#f7f8fa;border-radius:13px;padding:12px;text-align:right;font-size:26px;font-weight:800;color:var(--ink);margin-bottom:8px}.calc{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.calc button{min-height:45px;border:1px solid var(--line);background:#fff;border-radius:11px;font-weight:750}.calc .op{background:var(--soft);color:var(--brand2)}.calc .eq{background:var(--brand);color:#fff;border-color:var(--brand)}
+textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:13px;padding:11px;font-size:16px;resize:vertical;outline:none}textarea:focus,select:focus{border-color:#ef9b86;box-shadow:0 0 0 3px rgba(230,83,50,.1)}.save{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px}.save small{color:var(--muted)}.secondary,.primary,.danger{border:0;border-radius:11px;min-height:43px;padding:10px 13px;font-weight:800}.secondary{background:#eef0f3}.primary{background:var(--brand);color:#fff}.danger{background:var(--red);color:#fff}
+.timer{font-size:36px;text-align:center;font-weight:850;padding:10px}.timergrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:7px}.timergrid button{min-height:42px;border:1px solid var(--line);background:#fff;border-radius:11px}
+.helpgrid{display:grid;gap:9px}.help{border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px;text-align:left;display:flex;gap:11px;align-items:center}.help .hico{width:38px;height:38px;border-radius:11px;background:#f5f6f8;display:grid;place-items:center;font-size:19px}.help b{font-size:12px}.help small{display:block;font-size:10px;color:var(--muted);margin-top:2px}.notice{margin-top:11px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:11px;font-size:11px;color:var(--muted);line-height:1.45}.history{padding:3px 13px;margin-top:8px}.hist{padding:9px 0;border-bottom:1px solid var(--line);font-size:10px;color:var(--muted)}.hist:last-child{border-bottom:0}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.96);backdrop-filter:blur(15px);border-top:1px solid var(--line);padding:7px 9px calc(7px + env(safe-area-inset-bottom));z-index:30}.nav{border:0;background:none;color:#858a93;border-radius:11px;min-height:53px;font-size:9px;font-weight:800}.nav span{display:block;font-size:20px;margin-bottom:2px}.nav.on{background:var(--soft);color:var(--brand2)}
+.modalbg{position:fixed;inset:0;background:rgba(10,12,15,.58);display:none;align-items:flex-end;justify-content:center;padding:15px;z-index:60}.modalbg.show{display:flex}.modal{width:min(500px,100%);background:#fff;border-radius:21px;padding:17px;max-height:86vh;overflow:auto}.modal h3{margin:0;font-size:18px}.modal p{font-size:11px;color:var(--muted);line-height:1.45}.close{float:right;width:33px;height:33px;border:0;border-radius:10px;background:#eef0f3;font-weight:850}.field{margin-top:10px}.field label{display:block;font-size:10px;font-weight:850;color:var(--muted);text-transform:uppercase;margin-bottom:4px}.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:10px;font-size:16px;background:#fff}.actions{display:grid;gap:7px;margin-top:12px}.warn{background:#fff1f1;border:1px solid #efc7c7;border-radius:13px;padding:11px;font-size:11px;color:#7b2929;line-height:1.45}.toast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,16px);width:min(430px,calc(100% - 28px));background:#17191d;color:#fff;border-radius:13px;padding:11px 13px;font-size:11px;opacity:0;pointer-events:none;transition:.2s;z-index:90}.toast.show{opacity:1;transform:translate(-50%,0)}.offline{display:none;background:#fff5dd;color:#6c5000;text-align:center;font-size:10px;padding:7px}.offline.show{display:block}
+@media(min-width:700px){body{padding:24px}.app{border-radius:26px;overflow:hidden;min-height:calc(100vh - 48px)}nav{bottom:24px;border-radius:0 0 26px 26px}}
 </style>
 </head>
 <body>
 <div class="app">
-<div id="inactive" class="off"><div class="big">📱</div><h2>KZ SchoolMode</h2><p class="sub">Webový pilot školního režimu telefonu.</p><button class="activate" id="activate">Aktivovat SchoolMode</button></div>
-<div id="active" hidden>
-<header><div class="eyebrow">KZ SchoolMode</div><h1 id="hello">Ahoj, Davide</h1><div class="sub"><span id="school">ZŠ Testovací</span> · <span id="clazz">7.A</span></div><div class="status">● Školní režim aktivní</div></header>
+<div class="offline" id="offline">Offline režim – poznámky a nástroje fungují dál.</div>
+<header class="top"><div class="toprow"><div class="brand"><div class="logo">DDQ</div><div><b>SchoolMode</b><small id="schoolTop">ZŠ Testovací · 7.A</small></div></div><div class="chip"><span class="dot"></span>aktivní</div></div></header>
+<section class="hero"><div class="herohead"><div><div class="hello" id="hello">Ahoj, Davide</div><div class="date" id="date">Úterý 29. září</div></div><div class="mode">ŠKOLNÍ<br>REŽIM</div></div>
+<div class="lesson"><div class="eyebrow" id="lessonLabel">Právě probíhá</div><div class="lessonrow"><div><div class="lessonname" id="lessonName">Matematika</div><div class="meta" id="lessonMeta">8:00–8:45 · učebna 203</div></div><div class="remain"><b id="remain">28 min</b><small id="remainSub">do konce</small></div></div><div class="bar"><i id="progress"></i></div><div class="next"><span id="next">Další: Český jazyk · 8:55</span><span id="teacher">p. Novák</span></div></div></section>
+
 <main>
-<section class="card now"><div class="row"><div><div class="label">Teď</div><div class="subject">Matematika</div><div class="meta">8:00–8:45 · učebna 203</div></div><div class="pill">28 min do konce</div></div></section>
-<section class="grid"><button class="tool" data-open="calculator"><span class="ico">🧮</span><span class="txt">Kalkulačka</span></button><button class="tool" data-open="notes"><span class="ico">📝</span><span class="txt">Poznámky</span></button></section>
-<section class="card"><div class="label">Dnes ve třídě</div><ul class="list"><li>🎂 Adam má narozeniny</li><li>📢 14:00 školní turnaj</li><li>📚 Další: Český jazyk · 8:55</li></ul></section>
-<section id="calculator" class="card panel"><div class="label">Povolený nástroj</div><input id="calcDisplay" class="calc-display" value="0" readonly><div class="calc">
-<button data-calc="7">7</button><button data-calc="8">8</button><button data-calc="9">9</button><button data-calc="/">÷</button>
-<button data-calc="4">4</button><button data-calc="5">5</button><button data-calc="6">6</button><button data-calc="*">×</button>
-<button data-calc="1">1</button><button data-calc="2">2</button><button data-calc="3">3</button><button data-calc="-">−</button>
-<button data-calc="0">0</button><button data-calc="C">C</button><button data-calc="=">=</button><button data-calc="+">+</button></div></section>
-<section id="notes" class="card panel"><div class="label">Poznámky k hodině</div><textarea placeholder="Napiš si poznámku…"></textarea></section>
-<button class="help" id="help">Potřebuji pomoc / ztratil jsem se</button><button class="parent" id="parent">Požádat rodiče o odemčení</button><button class="sos" id="sos">🆘 TÍSEŇ</button>
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-</main><footer>Pilotní webová verze · neprovádí skutečné systémové blokování telefonu</footer>
+<section class="screen on" data-screen="home">
+<div class="head"><h2>Povolené nástroje</h2><button class="linkbtn" data-go="tools">Všechny</button></div>
+<div class="grid">
+<button class="quick" data-tool="calculator"><span class="ico orange">🧮</span><b>Kalkulačka</b><small>Povolena pro tuto hodinu</small></button>
+<button class="quick" data-tool="notes"><span class="ico blue">📝</span><b>Poznámky</b><small>Ukládají se do telefonu</small></button>
+<button class="quick" data-tool="timer"><span class="ico yellow">⏱️</span><b>Časovač</b><small>3, 5 nebo 10 minut</small></button>
+<button class="quick" data-go="help"><span class="ico green">🛟</span><b>Potřebuji pomoc</b><small>Učitel, rodič, tíseň</small></button>
+</div>
+<div class="head" style="margin-top:17px"><h2>Dnes ve třídě</h2><button class="linkbtn" data-go="schedule">Rozvrh</button></div>
+<div class="card today">
+<div class="item"><div class="itemicon">🎂</div><div><b>Adam má narozeniny</b><span>Viditelné pouze spolužákům ve třídě.</span></div></div>
+<div class="item"><div class="itemicon">📢</div><div><b>Školní turnaj · 14:00</b><span>Tělocvična · sraz 13:50 u šaten.</span></div></div>
+<div class="item"><div class="itemicon">📌</div><div><b>Zítra odevzdat souhlas s výletem</b><span>SchoolMode jen informuje; agendu nechává Bakalářům/EduPage.</span></div></div>
+</div>
+</section>
+
+<section class="screen" data-screen="schedule">
+<div class="title">Dnešní rozvrh</div><div class="intro">Rozvrh SchoolMode pouze čte a podle něj řídí dostupné funkce telefonu.</div><div class="card schedule" id="schedule"></div>
+</section>
+
+<section class="screen" data-screen="tools">
+<div class="title">Školní nástroje</div><div class="intro">Učitel může v budoucí verzi povolovat nástroje podle předmětu nebo konkrétní hodiny.</div>
+<div class="card tool" id="calculatorCard"><h3>🧮 Kalkulačka</h3><input id="display" class="display" value="0" readonly><div class="calc" id="calc">
+<button data-v="C">C</button><button data-v="(">(</button><button data-v=")">)</button><button class="op" data-v="/">÷</button>
+<button data-v="7">7</button><button data-v="8">8</button><button data-v="9">9</button><button class="op" data-v="*">×</button>
+<button data-v="4">4</button><button data-v="5">5</button><button data-v="6">6</button><button class="op" data-v="-">−</button>
+<button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button class="op" data-v="+">+</button>
+<button data-v="0">0</button><button data-v=".">,</button><button data-v="B">⌫</button><button class="eq" data-v="=">=</button>
 </div></div>
+<div class="card tool" id="notesCard"><h3>📝 Poznámky k hodině</h3><textarea id="notes" placeholder="Napiš si poznámku…"></textarea><div class="save"><small id="saveState">Ukládá se lokálně.</small><button class="secondary" id="clearNotes">Vymazat</button></div></div>
+<div class="card tool" id="timerCard"><h3>⏱️ Časovač</h3><div class="timer" id="timer">05:00</div><div class="timergrid"><button data-min="3">3 min</button><button data-min="5">5 min</button><button data-min="10">10 min</button></div><div class="timergrid"><button id="startTimer">Spustit</button><button id="pauseTimer">Pauza</button><button id="resetTimer">Reset</button></div></div>
+</section>
+
+<section class="screen" data-screen="help">
+<div class="title">Pomoc a bezpečí</div><div class="intro">Rychlé školní workflow. Systémové nouzové funkce telefonu se nikdy neblokují.</div>
+<div class="helpgrid">
+<button class="help" data-help="message"><span class="hico">💬</span><span><b>Napsat učiteli</b><small>Krátká zpráva nebo předvolený důvod</small></span></button>
+<button class="help" data-help="lost"><span class="hico">🧭</span><span><b>Ztratil/a jsem se</b><small>Volitelně přidat aktuální polohu</small></span></button>
+<button class="help" data-help="parent"><span class="hico">👪</span><span><b>Požádat rodiče o odemčení</b><small>Budoucí Parent Key + Face ID rodiče</small></span></button>
+<button class="help" data-help="sos"><span class="hico">🆘</span><span><b>Tíseň</b><small>Prioritní školní požadavek + 112</small></span></button>
+</div>
+<div class="notice">Pilotní verze zatím nic neposílá na server. Požadavky se ukládají pouze do tohoto telefonu, abychom bezpečně ověřili UX a workflow.</div>
+<div class="head" style="margin-top:14px"><h2>Poslední požadavky</h2></div><div class="card history" id="history"></div>
+</section>
+</main>
+
+<nav>
+<button class="nav on" data-go="home"><span>⌂</span>Domů</button><button class="nav" data-go="schedule"><span>▦</span>Rozvrh</button><button class="nav" data-go="tools"><span>◫</span>Nástroje</button><button class="nav" data-go="help"><span>＋</span>Pomoc</button>
+</nav>
+</div>
+
+<div class="modalbg" id="messageModal"><div class="modal"><button class="close" data-close>×</button><h3>Napsat učiteli</h3><p>V pilotu se požadavek uloží jen do historie zařízení.</p><div class="field"><label>Důvod</label><select id="reason"><option>Nerozumím zadání</option><option>Je mi špatně</option><option>Potřebuji pomoc</option><option>Jiný problém</option></select></div><div class="field"><label>Zpráva</label><textarea id="msg" maxlength="240" placeholder="Krátká zpráva učiteli"></textarea></div><div class="actions"><button class="primary" id="send">Uložit požadavek</button><button class="secondary" data-close>Zrušit</button></div></div></div>
+<div class="modalbg" id="lostModal"><div class="modal"><button class="close" data-close>×</button><h3>Ztratil/a jsem se</h3><p>Můžeš požádat o pomoc bez polohy nebo jednorázově přidat aktuální polohu. V pilotu se nikam neodesílá.</p><div class="actions"><button class="primary" id="lostPlain">Pomoc bez polohy</button><button class="secondary" id="lostLocation">Přidat aktuální polohu</button><button class="secondary" data-close>Zrušit</button></div></div></div>
+<div class="modalbg" id="parentModal"><div class="modal"><button class="close" data-close>×</button><h3>Parent Key</h3><p>Ostrá verze odešle žádost do telefonu rodiče a rodič ji potvrdí Face ID nebo jinou biometrií na svém zařízení.</p><div class="notice">Webový pilot neumí bezpečně poznat, že biometrie na telefonu dítěte patří rodiči. Proto zde pouze simulujeme žádost.</div><div class="actions"><button class="primary" id="parentRequest">Odeslat žádost rodiči</button><button class="secondary" data-close>Zrušit</button></div></div></div>
+<div class="modalbg" id="sosModal"><div class="modal"><button class="close" data-close>×</button><h3>🆘 Tíseň</h3><div class="warn">Použij pouze při skutečném ohrožení. SchoolMode v ostré verzi upozorní oprávněné zaměstnance školy. Pro bezprostřední nebezpečí je zde systémové volání 112.</div><div class="actions"><button class="danger" id="schoolSos">Aktivovat školní tísňový požadavek</button><button class="secondary" id="call112">Volat 112</button><button class="secondary" data-close>Zrušit</button></div></div></div>
+<div class="toast" id="toast"></div>
+
 <script>
-(()=>{const q=new URLSearchParams(location.search),student=q.get("student")||"David",school=q.get("school")||"ZŠ Testovací",clazz=q.get("class")||"7.A";
-const inactive=document.getElementById("inactive"),active=document.getElementById("active");document.getElementById("hello").textContent="Ahoj, "+student;document.getElementById("school").textContent=school;document.getElementById("clazz").textContent=clazz;
-function activate(){inactive.hidden=true;active.hidden=false}if(q.get("mode")==="school")activate();document.getElementById("activate").addEventListener("click",activate);
-const panels=[...document.querySelectorAll(".panel")];document.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.open;panels.forEach(p=>p.classList.toggle("active",p.id===id))}));
-const toast=document.getElementById("toast");function showToast(t){toast.textContent=t;toast.classList.add("show");clearTimeout(window.__kzToast);window.__kzToast=setTimeout(()=>toast.classList.remove("show"),5000)}
-document.getElementById("help").addEventListener("click",()=>showToast("Pilot: požadavek na pomoc by se odeslal určenému učiteli."));document.getElementById("parent").addEventListener("click",()=>showToast("Pilot: rodiči by přišla žádost o dočasné odemčení."));document.getElementById("sos").addEventListener("click",()=>showToast("Pilot TÍSEŇ: prioritní upozornění škole; ostrá verze zachová systémové nouzové funkce telefonu."));
-let expr="";const disp=document.getElementById("calcDisplay");document.querySelectorAll("[data-calc]").forEach(b=>b.addEventListener("click",()=>{const v=b.dataset.calc;if(v==="C"){expr="";disp.value="0";return}if(v==="="){try{if(!/^[0-9+\-*/. ()]+$/.test(expr))throw 0;const r=Function('"use strict";return ('+expr+')')();if(!Number.isFinite(r))throw 0;expr=String(r);disp.value=expr}catch{disp.value="Chyba";expr=""}return}expr+=v;disp.value=expr}))})();
+(function(){
+var q=new URLSearchParams(location.search), student=q.get('student')||'David', school=q.get('school')||'ZŠ Testovací', clazz=q.get('class')||'7.A';
+var schedule=[
+{name:'Matematika',start:'08:00',end:'08:45',room:'203',teacher:'p. Novák'},
+{name:'Český jazyk',start:'08:55',end:'09:40',room:'112',teacher:'p. Dvořáková'},
+{name:'Fyzika',start:'10:00',end:'10:45',room:'F1',teacher:'p. Král'},
+{name:'Angličtina',start:'10:55',end:'11:40',room:'205',teacher:'p. Smith'},
+{name:'Dějepis',start:'12:00',end:'12:45',room:'108',teacher:'p. Veselý'},
+{name:'Tělesná výchova',start:'12:55',end:'13:40',room:'TV',teacher:'p. Marek'}];
+var E=function(id){return document.getElementById(id)}, mins=function(t){var a=t.split(':');return +a[0]*60 + +a[1]}, now=function(){var d=new Date();return d.getHours()*60+d.getMinutes()+d.getSeconds()/60};
+E('hello').textContent='Ahoj, '+student; E('schoolTop').textContent=school+' · '+clazz; E('date').textContent=new Intl.DateTimeFormat('cs-CZ',{weekday:'long',day:'numeric',month:'long'}).format(new Date()).replace(/^./,function(x){return x.toUpperCase()});
+function current(){var n=now(),i=schedule.findIndex(function(x){return n>=mins(x.start)&&n<mins(x.end)});if(i>=0)return {type:'active',i:i,x:schedule[i]};i=schedule.findIndex(function(x){return n<mins(x.start)});if(i>=0)return {type:'before',i:i,x:schedule[i]};return {type:'done',i:schedule.length-1,x:schedule[schedule.length-1]}}
+function update(){
+var c=current(),n=now(),r,p,nx;
+if(c.type==='active'){r=Math.max(0,Math.ceil(mins(c.x.end)-n));p=Math.max(0,Math.min(100,(n-mins(c.x.start))/(mins(c.x.end)-mins(c.x.start))*100));E('lessonLabel').textContent='Právě probíhá';E('remainSub').textContent='do konce';nx=schedule[c.i+1];E('next').textContent=nx?'Další: '+nx.name+' · '+nx.start:'Poslední hodina dne'}
+else if(c.type==='before'){r=Math.max(0,Math.ceil(mins(c.x.start)-n));p=0;E('lessonLabel').textContent='Další hodina';E('remainSub').textContent='do začátku';E('next').textContent='Připrav se na další hodinu'}
+else{E('lessonLabel').textContent='Výuka dnes skončila';E('lessonName').textContent='Hotovo';E('lessonMeta').textContent='SchoolMode může být automaticky ukončen';E('remain').textContent='✓';E('remainSub').textContent='konec dne';E('teacher').textContent='';E('progress').style.width='100%';E('next').textContent='Hezký den';renderSchedule();return}
+E('lessonName').textContent=c.x.name;E('lessonMeta').textContent=c.x.start+'–'+c.x.end+' · učebna '+c.x.room;E('remain').textContent=r+' min';E('teacher').textContent=c.x.teacher;E('progress').style.width=p+'%';renderSchedule()
+}
+function renderSchedule(){var c=current();E('schedule').innerHTML=schedule.map(function(x,i){return '<div class="srow '+(c.type==='active'&&i===c.i?'active':'')+'"><div class="stime">'+x.start+'</div><div class="sinfo"><b>'+x.name+'</b><span>'+x.teacher+' · do '+x.end+'</span></div><div class="room">'+x.room+'</div></div>'}).join('')}
+function go(name){document.querySelectorAll('.screen').forEach(function(s){s.classList.toggle('on',s.dataset.screen===name)});document.querySelectorAll('.nav').forEach(function(b){b.classList.toggle('on',b.dataset.go===name)});window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){go(b.dataset.go)}});document.querySelectorAll('[data-tool]').forEach(function(b){b.onclick=function(){go('tools');setTimeout(function(){var x=E(b.dataset.tool+'Card');if(x)x.scrollIntoView({behavior:'smooth'})},100)}});
+
+var toastTimer;function toast(t){E('toast').textContent=t;E('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){E('toast').classList.remove('show')},3500)}
+var expr='';function draw(){E('display').value=expr||'0'}E('calc').onclick=function(ev){var b=ev.target.closest('[data-v]');if(!b)return;var v=b.dataset.v;if(v==='C'){expr='';return draw()}if(v==='B'){expr=expr.slice(0,-1);return draw()}if(v==='='){try{if(!expr||!/^[0-9+\-*/.() ]+$/.test(expr))throw 0;var z=Function('"use strict";return ('+expr+')')();if(!Number.isFinite(z))throw 0;expr=String(Math.round((z+Number.EPSILON)*1e10)/1e10);draw()}catch(e){expr='';E('display').value='Chyba'}return}if(expr.length<40)expr+=v;draw()};
+
+var notesKey='ddq-sm-notes-'+student+'-'+clazz,timerSave;E('notes').value=localStorage.getItem(notesKey)||'';E('notes').oninput=function(){E('saveState').textContent='Ukládám…';clearTimeout(timerSave);timerSave=setTimeout(function(){localStorage.setItem(notesKey,E('notes').value);E('saveState').textContent='Uloženo '+new Date().toLocaleTimeString('cs-CZ',{hour:'2-digit',minute:'2-digit'})},300)};E('clearNotes').onclick=function(){if(confirm('Vymazat poznámky na tomto zařízení?')){E('notes').value='';localStorage.removeItem(notesKey);E('saveState').textContent='Poznámky vymazány.'}};
+
+var sec=300,initial=300,tick=null;function tdraw(){E('timer').textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}document.querySelectorAll('[data-min]').forEach(function(b){b.onclick=function(){clearInterval(tick);tick=null;initial=sec=+b.dataset.min*60;tdraw()}});E('startTimer').onclick=function(){if(tick||sec<=0)return;tick=setInterval(function(){sec--;tdraw();if(sec<=0){clearInterval(tick);tick=null;toast('Čas vypršel.')}},1000)};E('pauseTimer').onclick=function(){clearInterval(tick);tick=null};E('resetTimer').onclick=function(){clearInterval(tick);tick=null;sec=initial;tdraw()};tdraw();
+
+var modals=document.querySelectorAll('.modalbg');function open(id){E(id).classList.add('show')}function close(m){m.classList.remove('show')}document.querySelectorAll('[data-close]').forEach(function(b){b.onclick=function(){close(b.closest('.modalbg'))}});modals.forEach(function(m){m.onclick=function(e){if(e.target===m)close(m)}});document.querySelectorAll('[data-help]').forEach(function(b){b.onclick=function(){open(b.dataset.help+'Modal')}});
+
+var histKey='ddq-sm-history-'+student+'-'+clazz;function safe(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}function getHist(){try{return JSON.parse(localStorage.getItem(histKey)||'[]')}catch(e){return []}}function add(type,detail){var h=getHist();h.unshift({type:type,detail:detail,time:new Date().toISOString()});localStorage.setItem(histKey,JSON.stringify(h.slice(0,8)));renderHist()}function renderHist(){var h=getHist();E('history').innerHTML=h.length?h.map(function(x){return '<div class="hist"><b>'+safe(x.type)+'</b> · '+new Date(x.time).toLocaleTimeString('cs-CZ',{hour:'2-digit',minute:'2-digit'})+'<br>'+safe(x.detail)+'</div>'}).join(''):'<div class="hist">Zatím žádné požadavky.</div>'}renderHist();
+
+E('send').onclick=function(){var d=E('reason').value+(E('msg').value.trim()?' — '+E('msg').value.trim():'');add('Zpráva učiteli',d);E('msg').value='';close(E('messageModal'));toast('Požadavek uložen do pilotní historie.')};
+E('lostPlain').onclick=function(){add('Ztratil/a jsem se','Bez sdílení polohy');close(E('lostModal'));toast('Urgentní požadavek uložen lokálně.')};
+E('lostLocation').onclick=function(){if(!navigator.geolocation){toast('Prohlížeč polohu nepodporuje.');return}var b=E('lostLocation');b.disabled=true;b.textContent='Zjišťuji polohu…';navigator.geolocation.getCurrentPosition(function(p){add('Ztratil/a jsem se','Jednorázová poloha: '+p.coords.latitude.toFixed(5)+', '+p.coords.longitude.toFixed(5));b.disabled=false;b.textContent='Přidat aktuální polohu';close(E('lostModal'));toast('Poloha uložena pouze lokálně.')},function(){b.disabled=false;b.textContent='Přidat aktuální polohu';toast('Polohu se nepodařilo získat.')},{timeout:8000,maximumAge:60000})};
+E('parentRequest').onclick=function(){add('Parent Key','Žádost o rodičovské odemčení');close(E('parentModal'));toast('Žádost rodiči je zatím simulovaná.')};
+E('schoolSos').onclick=function(){add('TÍSEŇ','Prioritní školní požadavek — pilot');close(E('sosModal'));toast('Tísňový požadavek uložen jako pilotní záznam.')};
+E('call112').onclick=function(){if(confirm('Opravdu chcete otevřít systémové volání na 112?'))location.href='tel:112'};
+function net(){E('offline').classList.toggle('show',!navigator.onLine)}addEventListener('online',net);addEventListener('offline',net);net();update();setInterval(update,30000);
+})();
 </script>
-</body></html>
+</body>
+</html>
