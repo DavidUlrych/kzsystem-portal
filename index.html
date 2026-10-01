@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#17191d">
+<meta name="theme-color" content="#f2f2f7">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>DDQ SchoolMode</title>
+<title>SchoolMode · školní režim</title>
 <style>
 :root{--bg:#f3f4f6;--card:#fff;--ink:#17191d;--muted:#737984;--line:#e2e5e9;--brand:#e65332;--brand2:#c94327;--soft:#fff0eb;--green:#168756;--red:#c73a3a;--blue:#2d6fb2;--shadow:0 12px 32px rgba(15,18,24,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}button,input,textarea,select{font:inherit}button{cursor:pointer}
@@ -23,13 +25,32 @@ textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:
 nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.96);backdrop-filter:blur(15px);border-top:1px solid var(--line);padding:7px 9px calc(7px + env(safe-area-inset-bottom));z-index:30}.nav{border:0;background:none;color:#858a93;border-radius:11px;min-height:53px;font-size:9px;font-weight:800}.nav span{display:block;font-size:20px;margin-bottom:2px}.nav.on{background:var(--soft);color:var(--brand2)}
 .modalbg{position:fixed;inset:0;background:rgba(10,12,15,.58);display:none;align-items:flex-end;justify-content:center;padding:15px;z-index:60}.modalbg.show{display:flex}.modal{width:min(500px,100%);background:#fff;border-radius:21px;padding:17px;max-height:86vh;overflow:auto}.modal h3{margin:0;font-size:18px}.modal p{font-size:11px;color:var(--muted);line-height:1.45}.close{float:right;width:33px;height:33px;border:0;border-radius:10px;background:#eef0f3;font-weight:850}.field{margin-top:10px}.field label{display:block;font-size:10px;font-weight:850;color:var(--muted);text-transform:uppercase;margin-bottom:4px}.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:10px;font-size:16px;background:#fff}.actions{display:grid;gap:7px;margin-top:12px}.warn{background:#fff1f1;border:1px solid #efc7c7;border-radius:13px;padding:11px;font-size:11px;color:#7b2929;line-height:1.45}.toast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,16px);width:min(430px,calc(100% - 28px));background:#17191d;color:#fff;border-radius:13px;padding:11px 13px;font-size:11px;opacity:0;pointer-events:none;transition:.2s;z-index:90}.toast.show{opacity:1;transform:translate(-50%,0)}.offline{display:none;background:#fff5dd;color:#6c5000;text-align:center;font-size:10px;padding:7px}.offline.show{display:block}
 @media(min-width:700px){body{padding:24px}.app{border-radius:26px;overflow:hidden;min-height:calc(100vh - 48px)}nav{bottom:24px;border-radius:0 0 26px 26px}}
+
+/* SchoolMode V3 — restrained iOS-inspired product UI */
+:root{--bg:#f2f2f7;--card:#fff;--ink:#111114;--muted:#6e6e73;--line:rgba(60,60,67,.18);--brand:#e65332;--brand2:#d94b2d;--soft:#fff3ef;--green:#248a3d;--red:#d70015;--blue:#007aff;--shadow:0 8px 30px rgba(0,0,0,.07)}
+body{background:#e9e9ee;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif}
+.app{background:var(--bg)}
+.top{background:rgba(242,242,247,.88);color:var(--ink);backdrop-filter:saturate(180%) blur(22px);-webkit-backdrop-filter:saturate(180%) blur(22px);border-bottom:.5px solid var(--line);padding-bottom:10px}
+.logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(145deg,#ef6a4c,#d74729);box-shadow:inset 0 1px 0 rgba(255,255,255,.28);font-size:12px}
+.brand b{font-size:15px;letter-spacing:-.2px}.brand small{color:var(--muted);font-size:11px}.chip{border:0;background:#e8f6ec;color:#1f7a35;padding:7px 10px;font-weight:700}.dot{background:#34c759}
+.hero{background:var(--bg);color:var(--ink);padding:18px 16px 10px}.hello{font-size:30px;letter-spacing:-.8px}.date{color:var(--muted);font-size:13px}.mode{color:#b23b24;background:#fff0eb;border:0;border-radius:999px;padding:7px 11px;line-height:1.15}
+.lesson{border:0;border-radius:22px;padding:17px;box-shadow:var(--shadow);margin-top:16px}.lessonname{font-size:24px;letter-spacing:-.45px}.eyebrow{color:var(--blue)}.bar{height:5px}.bar i{background:var(--blue)}.remain b{font-variant-numeric:tabular-nums}
+main{background:var(--bg);padding:12px 16px 104px}.head h2{font-size:19px;letter-spacing:-.35px}.linkbtn{color:var(--blue);font-size:13px;font-weight:600}
+.grid{gap:11px}.quick{border:0;border-radius:20px;min-height:112px;padding:15px;box-shadow:none}.quick b{font-size:15px;letter-spacing:-.15px}.quick small{font-size:11px;line-height:1.35}.ico{border-radius:12px}
+.card{border:0;border-radius:20px;box-shadow:none}.item{border-bottom:.5px solid var(--line)}.item b{font-size:14px}.item span{font-size:12px}.title{font-size:28px;letter-spacing:-.6px}.intro{font-size:13px}.srow{border-bottom:.5px solid var(--line)}.sinfo b{font-size:14px}.sinfo span,.stime,.room{font-size:11px}
+.tool{padding:16px}.tool h3{font-size:15px}.display{border:0;background:#f2f2f7;border-radius:14px}.calc button{border:0;background:#f2f2f7;border-radius:50%;aspect-ratio:1;min-height:auto;font-size:18px}.calc .op{background:#e8e8ed;color:var(--ink)}.calc .eq{background:var(--brand);color:#fff}
+.help{border:0;border-radius:18px;padding:14px}.help b{font-size:14px}.help small{font-size:11px}.notice{border:0;border-left:3px solid var(--brand);background:#fff;border-radius:14px}
+nav{background:rgba(249,249,249,.88);-webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);border-top:.5px solid var(--line)}.nav{font-size:10px}.nav span{font-size:19px}.nav.on{background:transparent;color:var(--blue)}
+.modalbg{background:rgba(0,0,0,.34);backdrop-filter:blur(4px)}.modal{border-radius:26px 26px 20px 20px;padding:20px}.modal h3{font-size:22px;letter-spacing:-.4px}.modal p{font-size:13px}.primary{background:var(--blue)}.secondary{background:#eeeef2}.danger{background:var(--red)}
+.parentStatus{display:flex;align-items:center;gap:12px;background:#fff;border-radius:20px;padding:15px;margin-top:11px}.parentIcon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#eef5ff;font-size:20px}.parentStatus b{font-size:14px}.parentStatus small{display:block;color:var(--muted);font-size:11px;margin-top:3px;line-height:1.35}.securePill{margin-left:auto;font-size:10px;font-weight:700;color:#1f7a35;background:#e8f6ec;border-radius:999px;padding:6px 8px;white-space:nowrap}
+@media(min-width:700px){body{padding:24px}.app{box-shadow:0 24px 70px rgba(0,0,0,.14)}}
 </style>
 </head>
 <body>
 <div class="app">
 <div class="offline" id="offline">Offline režim – poznámky a nástroje fungují dál.</div>
-<header class="top"><div class="toprow"><div class="brand"><div class="logo">DDQ</div><div><b>SchoolMode</b><small id="schoolTop">ZŠ Testovací · 7.A</small></div></div><div class="chip"><span class="dot"></span>aktivní</div></div></header>
-<section class="hero"><div class="herohead"><div><div class="hello" id="hello">Ahoj, Davide</div><div class="date" id="date">Úterý 29. září</div></div><div class="mode">ŠKOLNÍ<br>REŽIM</div></div>
+<header class="top"><div class="toprow"><div class="brand"><div class="logo">SM</div><div><b>SchoolMode</b><small id="schoolTop">ZŠ Testovací · 7.A</small></div></div><div class="chip"><span class="dot"></span>aktivní</div></div></header>
+<section class="hero"><div class="herohead"><div><div class="hello" id="hello">Ahoj, Davide</div><div class="date" id="date">Úterý 29. září</div></div><div class="mode">Školní režim aktivní</div></div>
 <div class="lesson"><div class="eyebrow" id="lessonLabel">Právě probíhá</div><div class="lessonrow"><div><div class="lessonname" id="lessonName">Matematika</div><div class="meta" id="lessonMeta">8:00–8:45 · učebna 203</div></div><div class="remain"><b id="remain">28 min</b><small id="remainSub">do konce</small></div></div><div class="bar"><i id="progress"></i></div><div class="next"><span id="next">Další: Český jazyk · 8:55</span><span id="teacher">p. Novák</span></div></div></section>
 
 <main>
@@ -43,9 +64,9 @@ nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,
 </div>
 <div class="head" style="margin-top:17px"><h2>Dnes ve třídě</h2><button class="linkbtn" data-go="schedule">Rozvrh</button></div>
 <div class="card today">
-<div class="item"><div class="itemicon">🎂</div><div><b>Adam má narozeniny</b><span>Viditelné pouze spolužákům ve třídě.</span></div></div>
-<div class="item"><div class="itemicon">📢</div><div><b>Školní turnaj · 14:00</b><span>Tělocvična · sraz 13:50 u šaten.</span></div></div>
-<div class="item"><div class="itemicon">📌</div><div><b>Zítra odevzdat souhlas s výletem</b><span>SchoolMode jen informuje; agendu nechává Bakalářům/EduPage.</span></div></div>
+<div class="item"><div class="itemicon">✓</div><div><b>Telefon je v řízeném režimu</b><span>Jsou dostupné pouze funkce povolené školou.</span></div></div>
+<div class="item"><div class="itemicon">⌁</div><div><b>Po skončení výuky</b><span>Školní režim se ukončí podle nastavení školy.</span></div></div>
+<div class="item"><div class="itemicon">i</div><div><b>Bez sledování polohy</b><span>SchoolMode nesleduje pohyb žáka. Poloha se použije jen jednorázově při výslovné nouzové žádosti.</span></div></div>
 </div>
 </section>
 
@@ -71,10 +92,10 @@ nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,
 <div class="helpgrid">
 <button class="help" data-help="message"><span class="hico">💬</span><span><b>Napsat učiteli</b><small>Krátká zpráva nebo předvolený důvod</small></span></button>
 <button class="help" data-help="lost"><span class="hico">🧭</span><span><b>Ztratil/a jsem se</b><small>Volitelně přidat aktuální polohu</small></span></button>
-<button class="help" data-help="parent"><span class="hico">👪</span><span><b>Požádat rodiče o odemčení</b><small>Budoucí Parent Key + Face ID rodiče</small></span></button>
+<button class="help" data-help="parent"><span class="hico">⌾</span><span><b>Rodičovské odemčení</b><small>Propojený rodič může režim bezpečně ukončit</small></span></button>
 <button class="help" data-help="sos"><span class="hico">🆘</span><span><b>Tíseň</b><small>Prioritní školní požadavek + 112</small></span></button>
 </div>
-<div class="notice">Pilotní verze zatím nic neposílá na server. Požadavky se ukládají pouze do tohoto telefonu, abychom bezpečně ověřili UX a workflow.</div>
+<div class="notice">Interaktivní produktové demo. Komunikační a bezpečnostní workflow jsou simulovaná; systémové nouzové volání telefonu zůstává vždy dostupné.</div>
 <div class="head" style="margin-top:14px"><h2>Poslední požadavky</h2></div><div class="card history" id="history"></div>
 </section>
 </main>
@@ -86,7 +107,7 @@ nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,
 
 <div class="modalbg" id="messageModal"><div class="modal"><button class="close" data-close>×</button><h3>Napsat učiteli</h3><p>V pilotu se požadavek uloží jen do historie zařízení.</p><div class="field"><label>Důvod</label><select id="reason"><option>Nerozumím zadání</option><option>Je mi špatně</option><option>Potřebuji pomoc</option><option>Jiný problém</option></select></div><div class="field"><label>Zpráva</label><textarea id="msg" maxlength="240" placeholder="Krátká zpráva učiteli"></textarea></div><div class="actions"><button class="primary" id="send">Uložit požadavek</button><button class="secondary" data-close>Zrušit</button></div></div></div>
 <div class="modalbg" id="lostModal"><div class="modal"><button class="close" data-close>×</button><h3>Ztratil/a jsem se</h3><p>Můžeš požádat o pomoc bez polohy nebo jednorázově přidat aktuální polohu. V pilotu se nikam neodesílá.</p><div class="actions"><button class="primary" id="lostPlain">Pomoc bez polohy</button><button class="secondary" id="lostLocation">Přidat aktuální polohu</button><button class="secondary" data-close>Zrušit</button></div></div></div>
-<div class="modalbg" id="parentModal"><div class="modal"><button class="close" data-close>×</button><h3>Parent Key</h3><p>Ostrá verze odešle žádost do telefonu rodiče a rodič ji potvrdí Face ID nebo jinou biometrií na svém zařízení.</p><div class="notice">Webový pilot neumí bezpečně poznat, že biometrie na telefonu dítěte patří rodiči. Proto zde pouze simulujeme žádost.</div><div class="actions"><button class="primary" id="parentRequest">Odeslat žádost rodiči</button><button class="secondary" data-close>Zrušit</button></div></div></div>
+<div class="modalbg" id="parentModal"><div class="modal"><button class="close" data-close>×</button><h3>Rodičovské odemčení</h3><p>Telefon žáka může být propojen s účtem rodiče. Rodič může ze svého telefonu školní režim vzdáleně ukončit například při naléhavé potřebě dítě kontaktovat.</p><div class="parentStatus"><div class="parentIcon">⌾</div><div><b>Propojený rodič</b><small>Potvrzení probíhá na zařízení rodiče pomocí Face ID nebo kódu zařízení.</small></div><span class="securePill">Zabezpečeno</span></div><div class="notice">Po odemčení se telefon vrátí do běžného režimu včetně standardního vyzvánění a běžných oprávnění. SchoolMode pro tuto funkci nevytváří historii pohybu ani přehled používání telefonu.</div><div class="actions"><button class="primary" id="parentRequest">Simulovat žádost o odemčení</button><button class="secondary" data-close>Zrušit</button></div></div></div>
 <div class="modalbg" id="sosModal"><div class="modal"><button class="close" data-close>×</button><h3>🆘 Tíseň</h3><div class="warn">Použij pouze při skutečném ohrožení. SchoolMode v ostré verzi upozorní oprávněné zaměstnance školy. Pro bezprostřední nebezpečí je zde systémové volání 112.</div><div class="actions"><button class="danger" id="schoolSos">Aktivovat školní tísňový požadavek</button><button class="secondary" id="call112">Volat 112</button><button class="secondary" data-close>Zrušit</button></div></div></div>
 <div class="toast" id="toast"></div>
 
@@ -128,7 +149,7 @@ var histKey='ddq-sm-history-'+student+'-'+clazz;function safe(s){return String(s
 E('send').onclick=function(){var d=E('reason').value+(E('msg').value.trim()?' — '+E('msg').value.trim():'');add('Zpráva učiteli',d);E('msg').value='';close(E('messageModal'));toast('Požadavek uložen do pilotní historie.')};
 E('lostPlain').onclick=function(){add('Ztratil/a jsem se','Bez sdílení polohy');close(E('lostModal'));toast('Urgentní požadavek uložen lokálně.')};
 E('lostLocation').onclick=function(){if(!navigator.geolocation){toast('Prohlížeč polohu nepodporuje.');return}var b=E('lostLocation');b.disabled=true;b.textContent='Zjišťuji polohu…';navigator.geolocation.getCurrentPosition(function(p){add('Ztratil/a jsem se','Jednorázová poloha: '+p.coords.latitude.toFixed(5)+', '+p.coords.longitude.toFixed(5));b.disabled=false;b.textContent='Přidat aktuální polohu';close(E('lostModal'));toast('Poloha uložena pouze lokálně.')},function(){b.disabled=false;b.textContent='Přidat aktuální polohu';toast('Polohu se nepodařilo získat.')},{timeout:8000,maximumAge:60000})};
-E('parentRequest').onclick=function(){add('Parent Key','Žádost o rodičovské odemčení');close(E('parentModal'));toast('Žádost rodiči je zatím simulovaná.')};
+E('parentRequest').onclick=function(){close(E('parentModal'));toast('Žádost o odemčení byla v demu předána rodiči.')};
 E('schoolSos').onclick=function(){add('TÍSEŇ','Prioritní školní požadavek — pilot');close(E('sosModal'));toast('Tísňový požadavek uložen jako pilotní záznam.')};
 E('call112').onclick=function(){if(confirm('Opravdu chcete otevřít systémové volání na 112?'))location.href='tel:112'};
 function net(){E('offline').classList.toggle('show',!navigator.onLine)}addEventListener('online',net);addEventListener('offline',net);net();update();setInterval(update,30000);
